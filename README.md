@@ -1,22 +1,6 @@
-# Initialize
-■1.rootにて`yarn install`を実施。
+# Shopify StoreFront
 
-
-# Env
-Auth0やDBの情報を入力する。
-
-
-# Deploy
-
-## Deploy on Vercel
-Vercelからgitリポジトリー連携を行う。
-
-
-# Lint
-```yarn lint:all```
-
-eslintとpretieerによるフォーマットを行う。
-
-# Style
-
-[Tailwind CSS v3.0](https://tailwindcss.com/blog/tailwindcss-v3)を使用。
+* Shopifyにてストアを構築してストアフロントAPIとアドミンAPIを作成
+* ShopifyのAPIキー等をenvに記載
+* 商品をいくつか登録
+* ローカルで立ち上げて開発
