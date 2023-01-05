@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint", "tailwindcss"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:tailwindcss/recommended",
+    "plugin:react/recommended",
+    "next",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "indent": ["error", 2],
+    "@typescript-eslint/no-misused-promises": 0,
+    "@typescript-eslint/no-unsafe-call": 2,
+    "@next/next/no-img-element": 0
+  },
+  "ignorePatterns": ["*.config.js"]
+}

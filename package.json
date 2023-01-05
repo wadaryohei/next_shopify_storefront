@@ -1,0 +1,73 @@
+{
+  "name": "shopify-storefront",
+  "version": "0.1.0",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "scripts": {
+    "dev": "yarn copy:dev && next dev",
+    "build": "next build",
+    "start": "next start",
+    "copy:dev": "node -e \"require('fs').copyFileSync('.env.local', '.env')\"",
+    "copy:prod": "node -e \"require('fs').copyFileSync('.env.production', '.env')\"",
+    "lint:all": "run-s lint lint:format lint:fix",
+    "lint": "next lint --dir src",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
+    "lint:format": "prettier --write --ignore-path .gitignore \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\"",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "next": "12.0.8",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.54.5"
+  },
+  "devDependencies": {
+    "@amplitude/eslint-config-typescript": "^1.10.0",
+    "@amplitude/types": "^1.10.0",
+    "@hookform/devtools": "^4.1.0",
+    "@nextui-org/react": "^1.0.0-beta.11",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@types/amplitude-js": "^8.16.1",
+    "@types/node": "^18.0.0",
+    "@types/react": "17.0.38",
+    "@types/shopify-buy": "^2.10.10",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "amplitude-js": "^8.18.5",
+    "autoprefixer": "^10.4.13",
+    "dayjs": "^1.11.1",
+    "eslint": "^8.7.0",
+    "eslint-config-next": "^12.0.8",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-tailwindcss": "^3.3.4",
+    "graphql": "^16.4.0",
+    "graphql-request": "^4.2.0",
+    "graphql-tag": "^2.12.6",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.4.1",
+    "postcss": "^8.4.20",
+    "prettier": "2.5.1",
+    "react-error-boundary": "^3.1.4",
+    "recoil": "^0.5.2",
+    "shopify-buy": "^2.15.1",
+    "stylelint": "^14.16.1",
+    "tailwindcss": "^3.2.4",
+    "typescript": "4.5.5",
+    "yarn-run-all": "^3.1.1"
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
+  }
+}
