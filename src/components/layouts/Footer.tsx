@@ -14,7 +14,7 @@ type Props = {
 // component
 //-----------------------------------------------------------
 const Index = ({ children }: Props) => {
-  return <footer className={'bg-smoke'}>{children}</footer>;
+  return <footer className='py-16 bg-black'>{children}</footer>;
 };
 
 export default Index;

@@ -1,4 +1,6 @@
+import { SITE_TITLE } from 'constants/base';
 import NextHead from 'next/head';
+import { NextRouter } from 'next/router';
 
 //-----------------------------------------------------------
 // props
@@ -8,6 +10,7 @@ type Props = {
   description: string;
   image: string;
   url: string;
+  router: NextRouter;
 };
 
 /**
@@ -16,10 +19,18 @@ type Props = {
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ title, description, image, url }: Props) => {
+const Index = ({ title, description, image, url, router }: Props) => {
   return (
     <NextHead>
-      <title>{title}</title>
+      {router.asPath != '/' ? (
+        <title>
+          {title} | {SITE_TITLE}
+        </title>
+      ) : (
+        <title>
+          {title} | {description}
+        </title>
+      )}
       <meta name='description' content={description} />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
