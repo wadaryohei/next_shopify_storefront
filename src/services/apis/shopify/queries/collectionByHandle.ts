@@ -17,43 +17,34 @@ export type ICollectionByHandle = {
     products: {
       edges: {
         node: {
-          variantBySelectedOptions: {
-            product: {
-              id: string;
-              handle: string;
-              title: string;
-            };
-            id: string;
-            weight: number;
-            image: {
-              id: string;
-              url: string;
-              width: number;
-              height: number;
-              altText: string | null;
-            };
-            priceV2: {
-              amount: string;
-            };
-            compareAtPriceV2: {
-              amount: string;
-            };
-            quantityAvailable: number;
+          handle: string;
+          title: string;
+          updatedAt: string;
+          priceRangeV2: number;
+          totalInventory: number;
+          variants: {
+            edges: {
+              node: {
+                id: string;
+                sku: string;
+                priceV2: {
+                  amount: string;
+                };
+                quantityAvailable: number;
+                image: {
+                  url: string;
+                };
+              };
+            }[];
           };
         };
       }[];
-      pageInfo: {
-        hasPreviousPage: boolean;
-        hasNextPage: boolean;
-        startCursor: string;
-        endCursor: string;
-      };
     };
   };
 };
 
 export const collectionByHandle = gql`
-  query collectionByHandle($handle: String!, $value: String!) {
+  query collectionByHandle($handle: String!, $first: Int!) {
     collectionByHandle(handle: $handle) {
       id
       title
@@ -63,40 +54,29 @@ export const collectionByHandle = gql`
         url
         altText
       }
-      products(first: 100) {
+      products(first: $first) {
         edges {
           node {
-            variantBySelectedOptions(selectedOptions: { name: "days", value: $value }) {
-              id
-              title
-              weight
-              product {
-                id
-                handle
-                title
+            handle
+            title
+            updatedAt
+            totalInventory
+            variants(first: 1) {
+              edges {
+                node {
+                  id
+                  sku
+                  priceV2 {
+                    amount
+                  }
+                  quantityAvailable
+                  image {
+                    url
+                  }
+                }
               }
-              image {
-                id
-                url
-                width
-                height
-                altText
-              }
-              priceV2 {
-                amount
-              }
-              compareAtPriceV2 {
-                amount
-              }
-              quantityAvailable
             }
           }
-        }
-        pageInfo {
-          hasPreviousPage
-          hasNextPage
-          startCursor
-          endCursor
         }
       }
     }
