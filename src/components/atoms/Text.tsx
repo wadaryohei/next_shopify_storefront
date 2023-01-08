@@ -28,7 +28,7 @@ type styleProps = {
 };
 
 /**
- * ボタンコンポーネント
+ * テキストコンポーネント
  */
 //-----------------------------------------------------------
 // component
@@ -71,7 +71,7 @@ const Index = ({ children, size, color, align, leading, isLoose, h1, h2, h3, h4,
           {children}
         </span>
       )}
-      {!(h1 || h2 || h3 || h4) && (
+      {!(h1 || h2 || h3 || h4 || span) && (
         <p className={props} style={style}>
           {children}
         </p>

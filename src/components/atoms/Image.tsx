@@ -3,13 +3,13 @@
 //-----------------------------------------------------------
 type Props = {
   src: string;
-  width?: number;
-  height?: number;
+  width?: string | number;
+  height?: string | number;
   alt: string;
 };
 
 /**
- * 見出し描画するコンポーネント
+ * 画像コンポーネント
  */
 //-----------------------------------------------------------
 // component
@@ -18,11 +18,11 @@ const Index = ({ src, width, height, alt }: Props) => {
   return (
     <img
       style={{ minWidth: `${width ? width : ''}px`, minHeight: `${height ? height : ''}px` }}
-      className={`object-cover`}
+      className='object-cover'
       src={src}
       alt={alt}
-      width={width ? width : 400}
-      height={height ? height : 400}
+      width={width ? width : '100%'}
+      height={height ? height : 'auto'}
     />
   );
 };
