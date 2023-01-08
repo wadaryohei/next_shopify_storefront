@@ -1,16 +1,17 @@
 import React from 'react';
 import type { GetServerSidePropsContext } from 'next';
 import { useRecoilState } from 'recoil';
-import { Grid, Spacer } from '@nextui-org/react';
 import { loadingAtom } from 'stores/atoms';
 import { useCart } from 'hooks/useCart';
 import { useDisabled } from 'hooks/useDisabled';
 import Layout from 'components/layouts/Layout';
-import AddButton from 'components/features/button/AddButton';
+import Container from 'components/layouts/Container';
 import Loading from 'components/atoms/Loading';
 import Text from 'components/atoms/Text';
+import * as Product from 'components/features/product/Index';
 import { IProduct } from 'services/apis/shopify/queries';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
+import { SITE_DESCRIPTION } from 'constants/base';
 
 //-----------------------------------------------------------
 // props
@@ -28,50 +29,36 @@ const Index = ({ product }: IProps) => {
   const [loading, setLoading] = useRecoilState(loadingAtom);
 
   return (
-    <Layout>
-      {product != null ? (
-        <Grid.Container gap={2} justify='center'>
-          {loading && <Loading />}
-          <Grid xs={12} md={4}>
-            {product.product.variants.edges.map((edge, i) => {
-              return (
-                <div key={i}>
-                  <img src={edge.node.image.url} alt={''} />
-                </div>
-              );
-            })}
-          </Grid>
+    <Layout title={product.product.title} description={SITE_DESCRIPTION} image={''} url={''}>
+      <Container xl4>
+        {product != null ? (
+          <div className={'grid grid-cols-1 gap-8 md:grid-cols-2'}>
+            {loading && <Loading />}
+            <div>
+              <Product.Image product={product} />
+            </div>
 
-          <Grid xs={12} md={4} direction={'column'}>
-            <Text h2 b size={'text-3xl'} color={'text-gray-600'}>
-              {product.product.title}
-            </Text>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: product.product.descriptionHtml
-              }}
-            />
-            <Spacer y={1} />
-            {product.product.variants.edges.map((edge, i) => {
-              return (
-                <Text key={i} b size={'text-3xl'} color={'text-red-500'} align={'text-right'}>
-                  ￥{Number(edge.node.priceV2.amount).toLocaleString()}
-                </Text>
-              );
-            })}
-            <Spacer y={3} />
-            {product.product.variants.edges.map((edge, index) => {
-              return (
-                <AddButton key={index} variantId={edge.node.id} quantity={1} cartHooks={cartHooks} disabledHooks={disabledHooks} setLoading={setLoading} />
-              );
-            })}
-          </Grid>
-        </Grid.Container>
-      ) : (
-        <Grid.Container gap={2} justify='center'>
-          <Text>商品情報を取得できませんでした。</Text>
-        </Grid.Container>
-      )}
+            <div>
+              <Product.Title title={product.product.title} />
+              <div className='mt-4'>
+                <Product.Description descriptionHtml={product.product.descriptionHtml} />
+              </div>
+
+              <div className='mt-4'>
+                <Product.Price product={product} />
+              </div>
+
+              <div className='mt-4'>
+                <Product.AddButton product={product} quantity={1} cartHooks={cartHooks} disabledHooks={disabledHooks} setLoading={setLoading} />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className={'grid grid-cols-1 md:grid-cols-2'}>
+            <Text>商品情報を取得できませんでした。</Text>
+          </div>
+        )}
+      </Container>
     </Layout>
   );
 };
