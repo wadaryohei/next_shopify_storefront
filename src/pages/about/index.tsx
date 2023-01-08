@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
 import Text from 'components/atoms/Text';
-import { SITE_DESCRIPTION, SITE_TITLE } from 'constants/base';
+import { SITE_DESCRIPTION, SITE_IMAGE, SITE_TITLE } from 'constants/base';
 import { PAGE_ABOUT } from 'constants/pages';
 
 //-----------------------------------------------------------
@@ -10,7 +10,7 @@ import { PAGE_ABOUT } from 'constants/pages';
 //-----------------------------------------------------------
 const Index = () => {
   return (
-    <Layout title={PAGE_ABOUT} description={SITE_DESCRIPTION} image={''} url={''}>
+    <Layout title={PAGE_ABOUT} description={SITE_DESCRIPTION} image={SITE_IMAGE}>
       <Container xl>
         <Text b size={'text-4xl'}>
           {SITE_TITLE}

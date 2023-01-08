@@ -7,7 +7,7 @@ import Nav from 'components/layouts/Nav';
 import List from 'components/features/products/List';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { IProducts, ISearch } from 'services/apis/shopify/queries';
-import { SITE_DESCRIPTION } from 'constants/base';
+import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
 
 //-----------------------------------------------------------
 // props
@@ -22,7 +22,7 @@ type IProps = {
 //-----------------------------------------------------------
 const Index = ({ products, query }: IProps) => {
   return (
-    <Layout title={`「${query ? query : ''}」の検索結果`} description={SITE_DESCRIPTION} image={''} url={''}>
+    <Layout title={`「${query ? query : ''}」の検索結果`} description={SITE_DESCRIPTION} image={SITE_IMAGE}>
       <Container>
         {products.products ? (
           <div className={'grid grid-cols-1 md:flex'}>

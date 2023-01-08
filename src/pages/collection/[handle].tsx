@@ -9,7 +9,7 @@ import * as Category from 'components/features/collection/Index';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { ICollectionByHandle, ICollections, IProducts } from 'services/apis/shopify/queries';
 import { GetServerSidePropsContext } from 'next';
-import { SITE_DESCRIPTION } from 'constants/base';
+import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
 
 //-----------------------------------------------------------
 // props
@@ -26,7 +26,7 @@ type IProps = {
 const Index = ({ products, collections, handle }: IProps) => {
   return (
     <>
-      <Layout title={`「${handle ? handle : ''}」の一覧`} description={SITE_DESCRIPTION} image={''} url={''}>
+      <Layout title={`「${handle ? handle : ''}」の一覧`} description={SITE_DESCRIPTION} image={SITE_IMAGE}>
         <Container>
           {products.products ? (
             <div className={'grid grid-cols-1 md:flex'}>

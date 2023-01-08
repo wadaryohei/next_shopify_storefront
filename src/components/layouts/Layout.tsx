@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { useEnv } from 'hooks/useEnv';
 import { useSearch } from 'hooks/useSearch';
 import { useRouter } from 'next/router';
 import Head from 'components/layouts/Head';
@@ -20,7 +21,6 @@ type Props = {
   title: string;
   description: string;
   image: string;
-  url: string;
 };
 
 /**
@@ -29,14 +29,15 @@ type Props = {
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ children, title, description, image, url }: Props) => {
+const Index = ({ children, title, description, image }: Props) => {
   const router = useRouter();
   const searchHooks = useSearch();
+  const envHooks = useEnv();
 
   return (
     <div>
       {/** head */}
-      <Head title={title} description={description} image={image} url={url} router={router} />
+      <Head title={title} description={description} image={image} url={envHooks.getEnvUrl()} router={router} />
 
       {/** panel */}
       <Search.Panel searchHooks={searchHooks} />

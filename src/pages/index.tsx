@@ -6,7 +6,7 @@ import Nav from 'components/layouts/Nav';
 import List from 'components/features/products/List';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { IProducts } from 'services/apis/shopify/queries';
-import { SITE_DESCRIPTION, SITE_TITLE } from 'constants/base';
+import { SITE_DESCRIPTION, SITE_IMAGE, SITE_TITLE } from 'constants/base';
 
 //-----------------------------------------------------------
 // props
@@ -21,7 +21,7 @@ type IProps = {
 const Index = ({ products }: IProps) => {
   return (
     <>
-      <Layout title={SITE_TITLE} description={SITE_DESCRIPTION} image={''} url={''}>
+      <Layout title={SITE_TITLE} description={SITE_DESCRIPTION} image={SITE_IMAGE}>
         <Container>
           {products.products ? (
             <div className={'grid grid-cols-1 md:flex'}>

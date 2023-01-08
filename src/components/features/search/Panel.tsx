@@ -19,8 +19,8 @@ type IProps = {
 const Index = ({ searchHooks }: IProps) => {
   return (
     <div
-      className={`absolute top-16 left-0 mt-2 transition-all z-0 ${
-        searchHooks.panel ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-50'
+      className={`absolute top-16 left-0 mt-2 transition-all z-0 duration-200 ${
+        searchHooks.panel ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-5'
       }`}
     >
       <div className='flex justify-center items-center py-4 w-screen bg-gray-200'>
