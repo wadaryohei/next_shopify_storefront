@@ -19,7 +19,7 @@ type Props = {
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ title, description, image, url, router }: Props) => {
+const Index = ({ title, description, url, router }: Props) => {
   return (
     <NextHead>
       {router.asPath != '/' ? (
@@ -34,8 +34,13 @@ const Index = ({ title, description, image, url, router }: Props) => {
       <meta name='description' content={description} />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
-      <meta property='og:image' content={image} />
-      <link rel='canonical' href={url} />
+      <meta property='og:image' content='og/default.png' />
+      <link rel='icon' href='favicon/favicon.ico' />
+      <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+      <link rel='apple-touch-icon' sizes='180x180' type='image/png' href='favicon/apple-touch-icon.png' />
+      <link rel='icon' type='image/png' sizes='32x32' href='favicon/favicon-32x32.png' />
+      <link rel='icon' type='image/png' sizes='16x16' href='favicon/favicon-16x16.png' />
+      <link rel='canonical' href={`${url}${router.asPath}`} />
     </NextHead>
   );
 };
