@@ -1,2 +1,2 @@
 # YURAGI Ambient Room
-https://next-shopify-storefront-ashy.vercel.app/
+https://yuragi-ambient-room.vercel.app/
