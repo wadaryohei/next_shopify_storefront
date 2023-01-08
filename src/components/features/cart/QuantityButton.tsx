@@ -12,16 +12,16 @@ type Props = {
 };
 
 /**
- * 数量を変更するコンポーネント
+ * カートの数量変更ボタンを描画するコンポーネント
  */
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
 const Index = ({ cartHooks, quantity, quantityAvailable, checkoutId, lineItemId }: Props) => {
   return (
-    <div className={'relative'}>
+    <div className='relative'>
       <select
-        className={'relative rounded-sm border'}
+        className='relative rounded-sm border'
         style={{
           width: '64px',
           padding: '8px 10px',

@@ -1,20 +1,23 @@
-import { ReactNode } from 'react';
-
 //-----------------------------------------------------------
 // props
 //-----------------------------------------------------------
 type Props = {
-  children?: ReactNode;
+  text: string;
+  onClick: () => void;
 };
 
 /**
- * <footer />を描画するコンポーネント
+ * カートの削除ボタンを描画するコンポーネント
  */
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ children }: Props) => {
-  return <footer className='py-16 bg-black'>{children}</footer>;
+const Index = ({ text, onClick }: Props) => {
+  return (
+    <button className='text-xs text-gray-400 underline' type='button' onClick={onClick}>
+      {text}
+    </button>
+  );
 };
 
 export default Index;

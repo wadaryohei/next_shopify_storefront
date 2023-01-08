@@ -1,20 +1,21 @@
-import { ReactNode } from 'react';
+import Button from 'components/atoms/Button';
 
 //-----------------------------------------------------------
 // props
 //-----------------------------------------------------------
 type Props = {
-  children?: ReactNode;
+  text: string;
+  onClick: () => void;
 };
 
 /**
- * <footer />を描画するコンポーネント
+ * カートのチェックアウトボタンを描画するコンポーネント
  */
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ children }: Props) => {
-  return <footer className='py-16 bg-black'>{children}</footer>;
+const Index = ({ text, onClick }: Props) => {
+  return <Button text={text} isDisabled={false} onClick={() => onClick()} />;
 };
 
 export default Index;

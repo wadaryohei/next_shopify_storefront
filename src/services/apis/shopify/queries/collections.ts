@@ -11,9 +11,6 @@ export type ICollections = {
         id: string;
         title: string;
         handle: string;
-        metafield: {
-          value: string;
-        };
         image: {
           id: string;
           width: string;
@@ -28,16 +25,13 @@ export type ICollections = {
 };
 
 export const collections = gql`
-  query collections($key: String!) {
-    collections(first: 100) {
+  query collections($first: Int!) {
+    collections(first: $first) {
       edges {
         node {
           id
           handle
           title
-          metafield(namespace: "my_fields", key: $key) {
-            value
-          }
           image {
             id
             width

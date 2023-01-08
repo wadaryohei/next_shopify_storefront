@@ -15,7 +15,7 @@ type Props = {
 //-----------------------------------------------------------
 const Index = ({ text, isDisabled, onClick }: Props) => {
   return (
-    <button onClick={onClick} disabled={isDisabled} className={'p-4 w-full text-white bg-blue-700 rounded-full'}>
+    <button onClick={onClick} disabled={isDisabled} className='p-4 w-full text-white bg-blue-700 rounded-full'>
       {text}
     </button>
   );

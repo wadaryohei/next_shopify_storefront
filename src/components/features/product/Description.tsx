@@ -1,20 +1,24 @@
-import { ReactNode } from 'react';
-
 //-----------------------------------------------------------
 // props
 //-----------------------------------------------------------
-type Props = {
-  children?: ReactNode;
+type IProps = {
+  descriptionHtml: string;
 };
 
 /**
- * <footer />を描画するコンポーネント
+ * 商品詳細の詳細を描画するコンポーネント
  */
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ children }: Props) => {
-  return <footer className='py-16 bg-black'>{children}</footer>;
+const Index = ({ descriptionHtml }: IProps) => {
+  return (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: descriptionHtml
+      }}
+    />
+  );
 };
 
 export default Index;

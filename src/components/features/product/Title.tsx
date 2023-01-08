@@ -1,20 +1,24 @@
-import { ReactNode } from 'react';
+import Text from 'components/atoms/Text';
 
 //-----------------------------------------------------------
 // props
 //-----------------------------------------------------------
-type Props = {
-  children?: ReactNode;
+type IProps = {
+  title: string;
 };
 
 /**
- * <footer />を描画するコンポーネント
+ * 商品詳細をタイトルを描画するコンポーネント
  */
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ children }: Props) => {
-  return <footer className='py-16 bg-black'>{children}</footer>;
+const Index = ({ title }: IProps) => {
+  return (
+    <Text h2 b size='text-3xl' color='text-gray-600'>
+      {title}
+    </Text>
+  );
 };
 
 export default Index;

@@ -3,21 +3,16 @@
 //-----------------------------------------------------------
 type Props = {
   text: string;
-  onClick: () => void;
 };
 
 /**
- * カート削除ボタンのコンポーネント
+ * 見出しコンポーネント
  */
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ text, onClick }: Props) => {
-  return (
-    <button className={'text-xs text-gray-400 underline'} type={'button'} onClick={onClick}>
-      {text}
-    </button>
-  );
+const Index = ({ text }: Props) => {
+  return <div className='flex justify-center items-center min-h-[50vh]'>{text}</div>;
 };
 
 export default Index;

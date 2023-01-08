@@ -2,12 +2,13 @@ import Button from 'components/atoms/Button';
 import { IUseCart } from 'hooks/useCart';
 import { IUseDisabled } from 'hooks/useDisabled';
 import { SetterOrUpdater } from 'recoil';
+import { IProduct } from 'services/apis/shopify/queries';
 
 //-----------------------------------------------------------
 // props
 //-----------------------------------------------------------
 type Props = {
-  variantId: string;
+  product: IProduct;
   quantity: number;
   cartHooks: IUseCart;
   disabledHooks: IUseDisabled;
@@ -15,12 +16,12 @@ type Props = {
 };
 
 /**
- * 商品詳細の詳細コンテンツを描画するコンポーネント
+ * 商品詳細のカート追加ボタンを描画するコンポーネント
  */
 //-----------------------------------------------------------
 // component
 //-----------------------------------------------------------
-const Index = ({ variantId, quantity, cartHooks, disabledHooks, setLoading }: Props) => {
+const Index = ({ product, quantity, cartHooks, disabledHooks, setLoading }: Props) => {
   //-----------------------------------------------------------
   // カートに追加するハンドラー
   //-----------------------------------------------------------
@@ -40,13 +41,18 @@ const Index = ({ variantId, quantity, cartHooks, disabledHooks, setLoading }: Pr
 
   return (
     <>
-      <Button
-        text={'カートに追加'}
-        isDisabled={disabledHooks.disabled}
-        onClick={async () => {
-          await onAddCartHandler(variantId, quantity);
-        }}
-      />
+      {product.product.variants.edges.map((edge, index) => {
+        return (
+          <Button
+            key={index}
+            text='カートに追加'
+            isDisabled={disabledHooks.disabled}
+            onClick={async () => {
+              await onAddCartHandler(edge.node.id, quantity);
+            }}
+          />
+        );
+      })}
     </>
   );
 };
