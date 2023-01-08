@@ -5,7 +5,7 @@ import Container from 'components/layouts/Container';
 import Loading from 'components/atoms/Loading';
 import Empty from 'components/atoms/Empty';
 import * as Cart from 'components/features/cart/Index';
-import { SITE_DESCRIPTION } from 'constants/base';
+import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
 import { PAGE_CART } from 'constants/pages';
 
 //-----------------------------------------------------------
@@ -15,7 +15,7 @@ const Index = () => {
   const cartHooks = useCart();
 
   return (
-    <Layout title={PAGE_CART} description={SITE_DESCRIPTION} image={''} url={''}>
+    <Layout title={PAGE_CART} description={SITE_DESCRIPTION} image={SITE_IMAGE}>
       <Container xl5>
         {cartHooks.cartLoading ? (
           <Loading />

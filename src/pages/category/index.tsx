@@ -5,7 +5,7 @@ import Empty from 'components/atoms/Empty';
 import * as Category from 'components/features/collection/Index';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { ICollections } from 'services/apis/shopify/queries';
-import { SITE_DESCRIPTION } from 'constants/base';
+import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
 import { PAGE_CATEGORY } from 'constants/pages';
 
 //-----------------------------------------------------------
@@ -20,7 +20,7 @@ type IProps = {
 //-----------------------------------------------------------
 const Index = ({ collections }: IProps) => {
   return (
-    <Layout title={PAGE_CATEGORY} description={SITE_DESCRIPTION} image={''} url={''}>
+    <Layout title={PAGE_CATEGORY} description={SITE_DESCRIPTION} image={SITE_IMAGE}>
       <Container xl>
         {collections.collections ? (
           <div className='grid grid-cols-2 gap-8'>

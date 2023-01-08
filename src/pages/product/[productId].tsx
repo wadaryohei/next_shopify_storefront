@@ -11,7 +11,7 @@ import Text from 'components/atoms/Text';
 import * as Product from 'components/features/product/Index';
 import { IProduct } from 'services/apis/shopify/queries';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
-import { SITE_DESCRIPTION } from 'constants/base';
+import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
 
 //-----------------------------------------------------------
 // props
@@ -29,7 +29,7 @@ const Index = ({ product }: IProps) => {
   const [loading, setLoading] = useRecoilState(loadingAtom);
 
   return (
-    <Layout title={product.product.title} description={SITE_DESCRIPTION} image={''} url={''}>
+    <Layout title={product.product.title} description={SITE_DESCRIPTION} image={SITE_IMAGE}>
       <Container xl4>
         {product != null ? (
           <div className={'grid grid-cols-1 gap-8 md:grid-cols-2'}>
