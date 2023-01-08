@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
-import { collectionByHandle, collections, product, products } from 'services/apis/shopify/queries';
+import { collectionByHandle, collections, product, products, search } from 'services/apis/shopify/queries';
 
 //-----------------------------------------------------------------
 // class
@@ -23,7 +23,7 @@ export class ShopifyGraphQLClient {
   //-----------------------------------------------------------------
   // collectionsを取得する
   //-----------------------------------------------------------------
-  collections = async <T>(variables: { key: string }) => {
+  collections = async <T>(variables: { first: number }) => {
     const res = await this.client.request<T>(collections, variables);
     return res;
   };
@@ -31,7 +31,7 @@ export class ShopifyGraphQLClient {
   //-----------------------------------------------------------------
   // collectionのproductsを全件取得する
   //-----------------------------------------------------------------
-  collectionByHandle = async <T>(variables: { handle: string; value: string }) => {
+  collectionByHandle = async <T>(variables: { handle: string; first: number }) => {
     const res = await this.client.request<T>(collectionByHandle, variables);
     return res;
   };
@@ -49,6 +49,14 @@ export class ShopifyGraphQLClient {
   //-----------------------------------------------------------------
   product = async <T>(variables: { handle: string }) => {
     const res = await this.client.request<T>(product, variables);
+    return res;
+  };
+
+  //-----------------------------------------------------------------
+  // searchしたproductsを取得する
+  //-----------------------------------------------------------------
+  search = async <T>(variables: { first: number; query: string }) => {
+    const res = await this.client.request<T>(search, variables);
     return res;
   };
 }
