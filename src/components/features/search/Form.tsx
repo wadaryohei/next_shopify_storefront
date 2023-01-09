@@ -16,17 +16,21 @@ type IProps = {
 //-----------------------------------------------------------
 const Index = ({ searchHooks }: IProps) => {
   return (
-    <form action='/search' method='get' className='flex justify-center items-center w-full'>
-      <input
-        type='text'
-        placeholder='検索する'
-        name='q'
-        autoFocus
-        className='flex-1 p-3 w-72 md:w-80'
-        value={searchHooks.search}
-        onChange={(e) => searchHooks.searchWord(e.target.value)}
-      />
-      <button className='p-4 w-32 h-full text-xs text-white bg-gray-400'>検索する</button>
+    <form action='/search' method='get' className='flex justify-center items-center px-8 w-full md:px-8'>
+      <label className='relative w-full'>
+        <div className='flex absolute top-1/2 left-2 justify-center items-center -translate-y-1/2'>
+          <img src='icon/search.svg' alt='search' />
+        </div>
+        <input
+          type='text'
+          placeholder='検索する'
+          name='q'
+          autoFocus
+          className='py-5 pr-2 pl-10 w-full'
+          value={searchHooks.search}
+          onChange={(e) => searchHooks.searchWord(e.target.value)}
+        />
+      </label>
     </form>
   );
 };

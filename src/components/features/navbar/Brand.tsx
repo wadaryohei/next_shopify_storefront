@@ -20,7 +20,7 @@ const Index = ({ text, tone }: Props) => {
   return (
     <Link href='/'>
       <a className={`flex items-center ${tone === 'light' ? '' : 'bg-white p-4 w-full justify-center'}`}>
-        <Avatar color='gradient' textColor='white' className='mr-2 cursor-pointer' />
+        <Avatar color='gradient' textColor='white' className='z-10 mr-2 cursor-pointer' />
         <Text b color='text-gray-800'>
           {text}
         </Text>
