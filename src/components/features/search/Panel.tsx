@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from 'components/features/search/Form';
-import Container from 'components/layouts/Container';
+import * as Search from 'components/features/search/Index';
 import { IUseSearch } from 'hooks/useSearch';
 
 //-----------------------------------------------------------
@@ -18,17 +18,12 @@ type IProps = {
 //-----------------------------------------------------------
 const Index = ({ searchHooks }: IProps) => {
   return (
-    <div
-      className={`absolute top-16 left-0 mt-2 transition-all z-0 duration-200 ${
-        searchHooks.panel ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-5'
-      }`}
-    >
-      <div className='flex justify-center items-center py-4 w-screen bg-gray-200'>
-        <Container lg>
-          <Form searchHooks={searchHooks} />
-        </Container>
+    <Search.Back searchHooks={searchHooks}>
+      <div className='flex flex-col items-center w-full'>
+        <Form searchHooks={searchHooks} />
+        <Search.Close text='閉じる' searchHooks={searchHooks} />
       </div>
-    </div>
+    </Search.Back>
   );
 };
 
