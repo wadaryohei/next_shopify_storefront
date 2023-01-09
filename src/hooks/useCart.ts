@@ -46,6 +46,7 @@ export const useCart = (): IUseCart => {
     const lineItemCount = checkout.lineItems.reduce(function (x, lineItem: ShopifyBuy.LineItem) {
       return x + lineItem.quantity;
     }, 0);
+
     setCart({
       lineItems: lineItems,
       lineItemsCount: lineItemCount,
@@ -81,6 +82,8 @@ export const useCart = (): IUseCart => {
         subTotal: checkout.subtotalPrice,
         webUrl: checkout.webUrl
       });
+
+      return;
     }
 
     const checkout = await ShopifySDKClient.checkout.addLineItems(currentCheckoutId ?? '', [{ variantId, quantity }]);
@@ -148,6 +151,12 @@ export const useCart = (): IUseCart => {
         subTotal: checkout.subtotalPrice,
         webUrl: checkout.webUrl
       });
+
+      // 削除後に0件であればlocalStorageを空にする
+      if (lineItemCount === 0) {
+        localStorage.removeItem('checkoutId');
+      }
+
       alert('削除しました');
     } catch (e) {
       alert('削除に失敗しました');
@@ -176,6 +185,7 @@ export const useCart = (): IUseCart => {
         subTotal: checkout.subtotalPrice,
         webUrl: checkout.webUrl
       });
+
       alert('削除しました');
     } catch (e) {
       alert('削除に失敗しました');
