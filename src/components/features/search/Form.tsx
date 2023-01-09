@@ -26,7 +26,7 @@ const Index = ({ searchHooks }: IProps) => {
           placeholder='商品を検索する'
           name='q'
           autoFocus
-          className='py-3 pr-2 pl-10 w-full'
+          className='py-4 pr-2 pl-10 w-full rounded-none appearance-none'
           value={searchHooks.search}
           onChange={(e) => searchHooks.searchWord(e.target.value)}
         />
