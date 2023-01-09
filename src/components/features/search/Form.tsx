@@ -19,7 +19,7 @@ const Index = ({ searchHooks }: IProps) => {
     <form action='/search' method='get' className='flex justify-center items-center px-4 w-full md:px-8'>
       <label className='relative w-full'>
         <div className='flex absolute top-1/2 left-2 justify-center items-center -translate-y-1/2'>
-          <img src='icon/search.svg' alt='search' />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 32" width="24" height="24" role="img" aria-hidden="true" aria-label="検索アイコン"><path d="m16.194 21.931 1.958-2.022 6.914 6.695-1.958 2.022-6.914-6.695z"></path><path d="M10.754 24.88C4.824 24.88 0 20.056 0 14.126S4.825 3.373 10.754 3.373s10.754 4.824 10.754 10.753S16.684 24.88 10.754 24.88zm0-18.692c-4.378 0-7.939 3.561-7.939 7.939s3.561 7.939 7.939 7.939 7.939-3.561 7.939-7.939-3.561-7.939-7.939-7.939z"></path></svg>
         </div>
         <input
           type='text'
