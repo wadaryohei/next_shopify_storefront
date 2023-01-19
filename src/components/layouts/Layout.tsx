@@ -40,7 +40,7 @@ const Index = ({ children, title, description, image }: Props) => {
       <Head title={title} description={description} image={image} url={envHooks.getEnvUrl()} router={router} />
 
       {/** panel */}
-      <Search.Panel searchHooks={searchHooks} />
+      <Search.SearchPanel searchHooks={searchHooks} />
 
       {/** header */}
       <Header>

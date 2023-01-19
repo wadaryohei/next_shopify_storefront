@@ -3,7 +3,7 @@ import Empty from 'components/elements/Empty';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
 import Nav from 'components/layouts/Nav';
-import { List } from 'components/features/products/components/Index';
+import * as Products from 'components/features/products/components/Index';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { IProducts } from 'services/apis/shopify/queries';
 import { SITE_DESCRIPTION, SITE_IMAGE, SITE_TITLE } from 'constants/base';
@@ -30,7 +30,7 @@ const Index = ({ products }: IProps) => {
               </div>
               <div className='flex-1 mt-10 w-full md:mt-0'>
                 <div className={'grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-8'}>
-                  <List products={products} />
+                  <Products.ProductsList products={products} />
                 </div>
               </div>
             </div>

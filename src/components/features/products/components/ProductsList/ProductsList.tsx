@@ -24,10 +24,10 @@ const Index = ({ products }: IProps) => {
           <div key={index}>
             <Link href={`/product/${edge.node.handle}`}>
               <a>
-                <Products.Image product={edge.node.variants} />
+                <Products.ProductsListImage product={edge.node.variants} />
                 <div className='mt-4'>
-                  <Products.Title title={edge.node.title} />
-                  <Products.Price product={edge.node.variants} />
+                  <Products.ProductsListTitle title={edge.node.title} />
+                  <Products.ProductsListPrice product={edge.node.variants} />
                 </div>
               </a>
             </Link>
