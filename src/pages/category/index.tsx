@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
-import Empty from 'components/atoms/Empty';
-import * as Category from 'components/features/collection/Index';
+import Empty from 'components/elements/Empty';
+import * as Category from 'components/features/collection/components/Index';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { ICollections } from 'services/apis/shopify/queries';
 import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
@@ -24,7 +24,7 @@ const Index = ({ collections }: IProps) => {
       <Container xl>
         {collections.collections ? (
           <div className='grid grid-cols-2 gap-8'>
-            <Category.List collections={collections} />
+            <Category.CollectionList collections={collections} />
           </div>
         ) : (
           <Empty text={'情報を取得できませんでした'} />

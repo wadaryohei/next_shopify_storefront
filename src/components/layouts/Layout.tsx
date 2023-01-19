@@ -8,9 +8,9 @@ import Footer from 'components/layouts/Footer';
 import Main from 'components/layouts/Main';
 import Nav from 'components/layouts/Nav';
 import Container from 'components/layouts/Container';
-import Text from 'components/atoms/Text';
-import * as Navbar from 'components/features/navbar/Index';
-import * as Search from 'components/features/search/Index';
+import Text from 'components/elements/Text';
+import * as Navbar from 'components/features/navbar/components/Index';
+import * as Search from 'components/features/search/components/Index';
 import { SITE_TITLE } from 'constants/base';
 
 //-----------------------------------------------------------
@@ -40,14 +40,14 @@ const Index = ({ children, title, description, image }: Props) => {
       <Head title={title} description={description} image={image} url={envHooks.getEnvUrl()} router={router} />
 
       {/** panel */}
-      <Search.Panel searchHooks={searchHooks} />
+      <Search.SearchPanel searchHooks={searchHooks} />
 
       {/** header */}
       <Header>
-        <Navbar.Bar>
-          <Navbar.Brand text={SITE_TITLE} tone='light' />
-          <Navbar.Content searchHooks={searchHooks} router={router} />
-        </Navbar.Bar>
+        <Navbar.NavbarWrapper>
+          <Navbar.NavbarContentBrand text={SITE_TITLE} tone='light' />
+          <Navbar.NavbarContent searchHooks={searchHooks} router={router} />
+        </Navbar.NavbarWrapper>
       </Header>
 
       {/** main */}
@@ -60,7 +60,7 @@ const Index = ({ children, title, description, image }: Props) => {
         <Container>
           <div className='grid grid-cols-1 gap-16 justify-start md:flex'>
             <div className='w-full md:w-64'>
-              <Navbar.Brand text={SITE_TITLE} tone='dark' />
+              <Navbar.NavbarContentBrand text={SITE_TITLE} tone='dark' />
             </div>
 
             <div className='w-64'>
