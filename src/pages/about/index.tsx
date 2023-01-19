@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
-import Text from 'components/atoms/Text';
+import Text from 'components/elements/Text';
 import { SITE_DESCRIPTION, SITE_IMAGE, SITE_TITLE } from 'constants/base';
 import { PAGE_ABOUT } from 'constants/pages';
 

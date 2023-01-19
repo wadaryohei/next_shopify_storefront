@@ -1,11 +1,11 @@
 import React from 'react';
 import { GetServerSidePropsContext } from 'next';
-import Empty from 'components/atoms/Empty';
-import Text from 'components/atoms/Text';
+import Empty from 'components/elements/Empty';
+import Text from 'components/elements/Text';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
 import Nav from 'components/layouts/Nav';
-import List from 'components/features/products/List';
+import * as Products from 'components/features/products/components/Index';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { IProducts, ISearch } from 'services/apis/shopify/queries';
 import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
@@ -37,7 +37,7 @@ const Index = ({ products, query }: IProps) => {
                 </Text>
               )}
               <div className={'grid grid-cols-2 gap-4 mt-4 md:grid-cols-4 md:gap-8'}>
-                <List products={products} />
+                <Products.ProductsList products={products} />
               </div>
             </div>
           </div>

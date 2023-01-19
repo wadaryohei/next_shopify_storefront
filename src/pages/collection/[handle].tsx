@@ -1,11 +1,11 @@
 import React from 'react';
-import Empty from 'components/atoms/Empty';
-import Text from 'components/atoms/Text';
+import Empty from 'components/elements/Empty';
+import Text from 'components/elements/Text';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
 import Nav from 'components/layouts/Nav';
-import List from 'components/features/products/List';
-import * as Category from 'components/features/collection/Index';
+import * as Products from 'components/features/products/components/Index';
+import * as Category from 'components/features/collection/components/Index';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { ICollectionByHandle, ICollections, IProducts } from 'services/apis/shopify/queries';
 import { GetServerSidePropsContext } from 'next';
@@ -42,12 +42,12 @@ const Index = ({ products, collections, handle }: IProps) => {
                   )}
                   {collections && (
                     <div className='mt-2'>
-                      <Category.Tag collections={collections} />
+                      <Category.CollectionTags collections={collections} />
                     </div>
                   )}
                 </div>
                 <div className={'grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-8'}>
-                  <List products={products} />
+                  <Products.ProductsList products={products} />
                 </div>
               </div>
             </div>

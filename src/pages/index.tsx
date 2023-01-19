@@ -1,9 +1,9 @@
 import React from 'react';
-import Empty from 'components/atoms/Empty';
+import Empty from 'components/elements/Empty';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
 import Nav from 'components/layouts/Nav';
-import List from 'components/features/products/List';
+import { List } from 'components/features/products/components/Index';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { IProducts } from 'services/apis/shopify/queries';
 import { SITE_DESCRIPTION, SITE_IMAGE, SITE_TITLE } from 'constants/base';

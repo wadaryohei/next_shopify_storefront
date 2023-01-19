@@ -6,9 +6,9 @@ import { useCart } from 'hooks/useCart';
 import { useDisabled } from 'hooks/useDisabled';
 import Layout from 'components/layouts/Layout';
 import Container from 'components/layouts/Container';
-import Loading from 'components/atoms/Loading';
-import Text from 'components/atoms/Text';
-import * as Product from 'components/features/product/Index';
+import Loading from 'components/elements/Loading';
+import Text from 'components/elements/Text';
+import * as Product from 'components/features/product/components/Index';
 import { IProduct } from 'services/apis/shopify/queries';
 import { ShopifyGraphQLClient } from 'services/apis/shopify/clients/storefront/ShopifyGraphQLClient';
 import { SITE_DESCRIPTION, SITE_IMAGE } from 'constants/base';
@@ -35,21 +35,27 @@ const Index = ({ product }: IProps) => {
           <div className={'grid grid-cols-1 gap-8 md:grid-cols-2'}>
             {loading && <Loading />}
             <div>
-              <Product.Image product={product} />
+              <Product.ProductImage product={product} />
             </div>
 
             <div>
-              <Product.Title title={product.product.title} />
+              <Product.ProductDescriptionTitle title={product.product.title} />
               <div className='mt-4'>
-                <Product.Description descriptionHtml={product.product.descriptionHtml} />
+                <Product.ProductDescription descriptionHtml={product.product.descriptionHtml} />
               </div>
 
               <div className='mt-4'>
-                <Product.Price product={product} />
+                <Product.ProductDescriptionPrice product={product} />
               </div>
 
               <div className='mt-4'>
-                <Product.AddButton product={product} quantity={1} cartHooks={cartHooks} disabledHooks={disabledHooks} setLoading={setLoading} />
+                <Product.ProductDescriptionAddButton
+                  product={product}
+                  quantity={1}
+                  cartHooks={cartHooks}
+                  disabledHooks={disabledHooks}
+                  setLoading={setLoading}
+                />
               </div>
             </div>
           </div>
