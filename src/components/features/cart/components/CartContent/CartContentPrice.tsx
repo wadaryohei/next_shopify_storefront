@@ -17,7 +17,7 @@ type IProps = {
 const Index = ({ lineItem }: IProps) => {
   return (
     <Text size='text-sm md:text-lg' align='text-right'>
-      ￥{(Number(lineItem.variant.price) * Number(lineItem.quantity)).toLocaleString()}
+      ￥{(Number(lineItem.variant.priceV2.amount) * Number(lineItem.quantity)).toLocaleString()}
     </Text>
   );
 };

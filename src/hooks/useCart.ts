@@ -51,7 +51,7 @@ export const useCart = (): IUseCart => {
       lineItems: lineItems,
       lineItemsCount: lineItemCount,
       checkoutId: checkoutId,
-      subTotal: checkout.subtotalPrice,
+      subTotal: checkout.subtotalPriceV2.amount,
       webUrl: checkout.webUrl
     });
   };
@@ -79,7 +79,7 @@ export const useCart = (): IUseCart => {
         lineItems: lineItems,
         lineItemsCount: lineItemCount,
         checkoutId: checkoutId,
-        subTotal: checkout.subtotalPrice,
+        subTotal: checkout.subtotalPriceV2.amount,
         webUrl: checkout.webUrl
       });
 
@@ -96,7 +96,7 @@ export const useCart = (): IUseCart => {
       lineItems: lineItems,
       lineItemsCount: lineItemCount,
       checkoutId: checkoutId,
-      subTotal: checkout.subtotalPrice,
+      subTotal: checkout.subtotalPriceV2.amount,
       webUrl: checkout.webUrl
     });
   };
@@ -120,7 +120,7 @@ export const useCart = (): IUseCart => {
         lineItems: lineItems,
         lineItemsCount: lineItemCount,
         checkoutId: checkoutId,
-        subTotal: checkout.subtotalPrice,
+        subTotal: checkout.subtotalPriceV2.amount,
         webUrl: checkout.webUrl
       });
     } catch (e) {
@@ -148,7 +148,7 @@ export const useCart = (): IUseCart => {
         lineItems: lineItems,
         lineItemsCount: lineItemCount,
         checkoutId: checkoutId,
-        subTotal: checkout.subtotalPrice,
+        subTotal: checkout.subtotalPriceV2.amount,
         webUrl: checkout.webUrl
       });
 
@@ -182,7 +182,7 @@ export const useCart = (): IUseCart => {
         lineItems: lineItems,
         lineItemsCount: lineItemCount,
         checkoutId: checkoutId,
-        subTotal: checkout.subtotalPrice,
+        subTotal: checkout.subtotalPriceV2.amount,
         webUrl: checkout.webUrl
       });
 

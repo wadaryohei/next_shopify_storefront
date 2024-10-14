@@ -9,6 +9,9 @@ declare module 'shopify-buy' {
     product: Product;
     selectedOptions: SelectedOption[];
     weight: number;
+    priceV2: {
+      amount: string;
+    };
   }
 
   export interface SelectedOption {
@@ -19,6 +22,9 @@ declare module 'shopify-buy' {
   export interface Cart {
     webUrl: string;
     orderStatusUrl: string | null;
+    subtotalPriceV2: {
+      amount: string;
+    };
   }
 
   export interface CheckoutResource {
